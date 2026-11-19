@@ -1,0 +1,1661 @@
+/* ==========================================================================
+   Contra el Maltrato Animal — Tartagal, Salta
+   Dirección de Arte: Crónica Documental y Archivo Judicial
+   Estilo Brutalista Editorial / Anti-Plantilla IA
+   ========================================================================== */
+
+:root {
+  --bg-paper: #F3EFE6;
+  --bg-paper-alt: #E7E0D2;
+  --surface-card: #FAF8F3;
+  --surface-dossier: #FFFDF9;
+  --ink-primary: #141414;
+  --ink-muted: #4A4741;
+  --accent-crimson: #C81E1E;
+  --accent-crimson-hover: #991515;
+  --border-hard: 2px solid #141414;
+  --shadow-brutalist: 6px 6px 0px #141414;
+  --shadow-brutalist-crimson: 6px 6px 0px #C81E1E;
+  --shadow-brutalist-sm: 3px 3px 0px #141414;
+  
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-paper);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink-primary);
+  background-color: var(--bg-paper);
+  /* Textura de papel con grilla de puntos forenses */
+  background-image: radial-gradient(rgba(20, 20, 20, 0.12) 1.2px, transparent 1.2px);
+  background-size: 18px 18px;
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================= CONTENEDORES Y TIPOGRAFÍA BASE ================= */
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--ink-primary);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+em {
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-crimson);
+  text-decoration-thickness: 3.5px;
+  text-underline-offset: 5px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ================= TICKER CINÉTICO SUPERIOR (CONTINUO) ================= */
+
+.ticker-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--ink-primary);
+  color: #FAF8F3;
+  border-bottom: var(--border-hard);
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+  box-shadow: 0 3px 0px rgba(20, 20, 20, 0.2);
+}
+
+.ticker-track {
+  display: inline-block;
+  padding: 10px 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: continuousTicker 28s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-divider {
+  color: var(--accent-crimson);
+  margin: 0 16px;
+  font-weight: 900;
+}
+
+@keyframes continuousTicker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ================= BOTONES BRUTALISTAS ================= */
+
+.btn-brutalist {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--surface-card);
+  color: var(--ink-primary);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 10px 18px;
+  border: var(--border-hard);
+  box-shadow: var(--shadow-brutalist);
+  cursor: pointer;
+  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.12s ease, background-color 0.15s ease;
+  text-transform: uppercase;
+}
+
+.btn-brutalist:hover {
+  background-color: #FFFFFF;
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px var(--ink-primary);
+}
+
+.btn-brutalist:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px var(--ink-primary);
+}
+
+/* ================= ENCABEZADO Y HERO DOSSIER ================= */
+
+.site-header {
+  border-bottom: var(--border-hard);
+  padding: 24px 0 56px 0;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pulse-beacon {
+  width: 14px;
+  height: 14px;
+  background-color: var(--accent-crimson);
+  border: 2px solid var(--ink-primary);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(200, 30, 30, 0.7);
+  animation: pulseAlarm 1.8s infinite;
+}
+
+@keyframes pulseAlarm {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(200, 30, 30, 0.8);
+  }
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 10px rgba(200, 30, 30, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(200, 30, 30, 0);
+  }
+}
+
+.mono-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: var(--ink-primary);
+  color: #FAF8F3;
+  padding: 4px 10px;
+  border: var(--border-hard);
+  text-transform: uppercase;
+}
+
+.btn-admin-trigger {
+  background: #FFF;
+}
+
+.status-indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #999;
+  border: 1.5px solid var(--ink-primary);
+  display: inline-block;
+}
+
+.status-indicator-dot.unlocked {
+  background-color: #10B981;
+}
+
+/* Grilla del Hero */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.kicker-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-crimson);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.hero-headline {
+  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 22px;
+}
+
+.hero-lead {
+  font-size: 1.15rem;
+  color: var(--ink-muted);
+  max-width: 620px;
+  margin-bottom: 32px;
+  line-height: 1.65;
+}
+
+.hero-nav-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn-hero-primary {
+  background-color: var(--accent-crimson);
+  color: #FAF8F3;
+  border-color: var(--ink-primary);
+}
+
+.btn-hero-primary:hover {
+  background-color: var(--accent-crimson-hover);
+  color: #FFFFFF;
+}
+
+.btn-hero-secondary {
+  background-color: var(--surface-card);
+}
+
+/* Ficha del Dossier Judicial (Hero Side Card) */
+.hero-dossier-card {
+  background: var(--surface-dossier);
+  border: var(--border-hard);
+  box-shadow: var(--shadow-brutalist);
+  padding: 28px;
+  position: relative;
+}
+
+.dossier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 2px dashed rgba(20, 20, 20, 0.25);
+}
+
+.dossier-stamp {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #FAF8F3;
+  background: var(--accent-crimson);
+  padding: 4px 10px;
+  border: var(--border-hard);
+  transform: rotate(-1.5deg);
+  display: inline-block;
+}
+
+.dossier-badge-state {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  background: #E5E0D5;
+  padding: 4px 8px;
+  border: 1px solid var(--ink-primary);
+}
+
+.dossier-title {
+  font-size: 1.35rem;
+  margin-bottom: 14px;
+  color: var(--ink-primary);
+}
+
+.dossier-statement-box {
+  background: #F4EFE6;
+  border-left: 4px solid var(--accent-crimson);
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.statement-author strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-primary);
+}
+
+.statement-role {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--accent-crimson);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.statement-body {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #262422;
+  font-style: normal;
+}
+
+.dossier-metadata-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.88rem;
+  border-top: 2px dashed rgba(20, 20, 20, 0.25);
+  padding-top: 16px;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.meta-row dt {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.meta-row dd {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-align: right;
+  color: var(--ink-primary);
+}
+
+.meta-highlight {
+  color: var(--accent-crimson) !important;
+  font-weight: 700;
+}
+
+/* ================= SECCIONES GENERALES ================= */
+
+.content-section {
+  padding: 80px 0;
+  border-bottom: var(--border-hard);
+}
+
+.section-alternate {
+  background-color: var(--bg-paper-alt);
+}
+
+.section-heading-block {
+  max-width: 800px;
+  margin-bottom: 48px;
+}
+
+.section-heading-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.section-mono-number {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-crimson);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+/* ================= SECCIÓN 01: ARCHIVO VISUAL Y MESA DE TRABAJO ================= */
+
+.gallery-workbench {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.workbench-controls-panel {
+  background: var(--surface-card);
+  border: var(--border-hard);
+  box-shadow: var(--shadow-brutalist);
+  padding: 24px;
+}
+
+.dossier-control-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: var(--border-hard);
+}
+
+.control-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.caption-counter-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--ink-primary);
+  color: #FFF;
+  padding: 3px 8px;
+}
+
+.active-caption-container {
+  min-height: 80px;
+  margin-bottom: 24px;
+}
+
+.active-caption-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink-primary);
+}
+
+.workbench-nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.btn-nav {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 0.78rem;
+}
+
+.workbench-instructions {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  border-top: 1px dashed rgba(20, 20, 20, 0.3);
+  padding-top: 16px;
+}
+
+/* Mesa de examen con cartas solapadas */
+.stage-viewport-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 480px;
+  position: relative;
+  perspective: 1200px;
+}
+
+.desk-overlapping-stage {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 420px;
+}
+
+/* Animación física de impacto sobre el escritorio */
+@keyframes slamOntoDesk {
+  0% {
+    transform: translateY(-90px) scale(1.15) rotate(var(--slam-rot, -8deg));
+    opacity: 0;
+  }
+  65% {
+    transform: translateY(6px) scale(0.97) rotate(calc(var(--target-rot, 0deg) * -0.5));
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(-2px) scale(1.01) rotate(var(--target-rot, 0deg));
+  }
+  100% {
+    transform: var(--target-transform);
+    opacity: 1;
+  }
+}
+
+.stacked-photo-card {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+  background: #FAF8F3;
+  border: var(--border-hard);
+  box-shadow: 6px 8px 0px rgba(20, 20, 20, 0.95);
+  padding: 14px 14px 20px 14px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.25, 1), box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.stacked-photo-card.slamming {
+  animation: slamOntoDesk 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+}
+
+/* Efecto abanico desplegado al pasar el ratón por el escenario */
+.desk-overlapping-stage:hover .stacked-photo-card {
+  transform: var(--hover-transform) !important;
+  box-shadow: 10px 14px 0px rgba(20, 20, 20, 0.85);
+}
+
+.photo-frame-inner {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  background: #141414;
+  overflow: hidden;
+  border: 1px solid #141414;
+}
+
+.photo-frame-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.35s ease;
+}
+
+/* Escudo protector para evidencia sensible */
+.stacked-photo-card.is-blurred .photo-frame-inner img {
+  filter: blur(22px) grayscale(40%);
+  transform: scale(1.08);
+}
+
+.sensitive-shield-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.82);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+  color: #FAF8F3;
+  z-index: 5;
+}
+
+.sensitive-badge {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  background: var(--accent-crimson);
+  color: #FFF;
+  padding: 5px 12px;
+  border: var(--border-hard);
+  margin-bottom: 12px;
+}
+
+.sensitive-warning-text {
+  font-size: 0.88rem;
+  color: #E7E0D2;
+  margin-bottom: 16px;
+  max-width: 280px;
+  line-height: 1.4;
+}
+
+.btn-reveal-photo {
+  background: #FAF8F3;
+  color: var(--ink-primary);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: var(--border-hard);
+  box-shadow: 3px 3px 0px var(--accent-crimson);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.btn-reveal-photo:hover {
+  background: #FFF;
+  transform: scale(1.04);
+}
+
+.btn-reblur-photo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(20, 20, 20, 0.9);
+  color: #FFF;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  border: 1px solid #FFF;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 6;
+}
+
+.photo-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.photo-card-caption-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+  font-weight: 600;
+}
+
+.photo-card-tag {
+  background: var(--ink-primary);
+  color: #FFF;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.photo-card-tag.is-sensitive-tag {
+  background: var(--accent-crimson);
+}
+
+/* ================= SECCIÓN 02: EXPEDIENTE JUDICIAL ================= */
+
+.filter-controls-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill-filter {
+  background: var(--surface-card);
+  color: var(--ink-primary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border: var(--border-hard);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pill-filter:hover {
+  background: #FFF;
+}
+
+.pill-filter.active {
+  background: var(--ink-primary);
+  color: #FAF8F3;
+  box-shadow: 4px 4px 0px var(--accent-crimson);
+}
+
+.judicial-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+.case-card {
+  background: var(--surface-card);
+  border: var(--border-hard);
+  box-shadow: var(--shadow-brutalist);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.case-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px var(--ink-primary);
+}
+
+/* Próximo avance destacado con rojo de denuncia */
+.case-card.is-upcoming {
+  border: 2px solid var(--accent-crimson);
+  box-shadow: var(--shadow-brutalist-crimson);
+  background: #FFFDFC;
+}
+
+.case-card.is-upcoming:hover {
+  box-shadow: 9px 9px 0px var(--accent-crimson);
+}
+
+.case-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.case-stage-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #E5DFD3;
+  color: var(--ink-primary);
+  padding: 4px 8px;
+  border: 1px solid var(--ink-primary);
+}
+
+.case-card.is-upcoming .case-stage-badge {
+  background: var(--accent-crimson);
+  color: #FAF8F3;
+  border-color: var(--accent-crimson);
+}
+
+.case-date-text {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+.case-card-title {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.case-card-description {
+  font-size: 0.95rem;
+  color: #2D2B28;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.case-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed rgba(20, 20, 20, 0.3);
+  padding-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.case-exp-tag {
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.upcoming-flag {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--accent-crimson);
+  letter-spacing: 0.05em;
+}
+
+/* ================= SECCIÓN 03: PRENSA Y ENTREVISTAS (YT / IG / FB) ================= */
+
+.interviews-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+
+.video-dossier-card {
+  background: var(--surface-card);
+  border: var(--border-hard);
+  box-shadow: var(--shadow-brutalist);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Contenedor de aspect ratio dinámico */
+.video-frame-container {
+  width: 100%;
+  background: #000;
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.video-frame-container.is-vertical {
+  aspect-ratio: 9 / 16;
+  max-height: 560px;
+}
+
+.video-frame-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.video-info-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--surface-card);
+}
+
+.video-meta-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-crimson);
+  letter-spacing: 0.05em;
+}
+
+.video-entry-title {
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+.video-fallback-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-top: 6px;
+  transition: color 0.15s ease;
+}
+
+.video-fallback-link:hover {
+  color: var(--accent-crimson);
+}
+
+/* ================= PANEL LATERAL DE CARGA (ADMIN SLIDE DRAWER) ================= */
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1500;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.drawer-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin-slide-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface-dossier);
+  border-left: var(--border-hard);
+  box-shadow: -8px 0px 0px rgba(20, 20, 20, 0.3);
+  z-index: 1600;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.admin-slide-drawer.is-open {
+  transform: translateX(0);
+}
+
+.drawer-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--ink-primary);
+  color: #FAF8F3;
+  border-bottom: var(--border-hard);
+}
+
+.drawer-kicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-crimson);
+}
+
+.drawer-title {
+  color: #FAF8F3;
+  font-size: 1.35rem;
+}
+
+.btn-drawer-close {
+  background: transparent;
+  color: #FAF8F3;
+  border: 2px solid #FAF8F3;
+  font-size: 1rem;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-drawer-close:hover {
+  background: var(--accent-crimson);
+  border-color: var(--accent-crimson);
+}
+
+.drawer-body-scroll {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Caja de Autenticación */
+.auth-box-card {
+  background: #FAF8F3;
+  border: var(--border-hard);
+  box-shadow: var(--shadow-brutalist-sm);
+  padding: 18px;
+  margin-bottom: 24px;
+}
+
+.auth-input-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btn-auth-submit {
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+
+/* Formularios del Admin */
+.admin-tabbed-forms.is-locked {
+  opacity: 0.4;
+  pointer-events: none;
+  user-select: none;
+  filter: grayscale(80%);
+}
+
+.admin-tabs-nav {
+  display: flex;
+  border-bottom: var(--border-hard);
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  flex: 1;
+  background: #E5DFD3;
+  border: none;
+  border-right: var(--border-hard);
+  padding: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.tab-button:last-child {
+  border-right: none;
+}
+
+.tab-button.active {
+  background: var(--surface-dossier);
+  color: var(--accent-crimson);
+  border-bottom: 3px solid var(--accent-crimson);
+}
+
+.tab-pane-form {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tab-pane-form.active {
+  display: flex;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.input-brutalist {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  background: #FFF;
+  border: var(--border-hard);
+  outline: none;
+  transition: box-shadow 0.12s ease;
+}
+
+.input-brutalist:focus {
+  box-shadow: 3px 3px 0px var(--accent-crimson);
+}
+
+.textarea-brutalist {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.field-hint {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+.checkbox-row-card {
+  background: #F4EFE6;
+  border: 1px solid var(--ink-primary);
+  padding: 12px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.checkbox-brutalist {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-crimson);
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.sensitive-box-highlight {
+  border-left: 4px solid var(--accent-crimson);
+}
+
+.btn-submit-full {
+  width: 100%;
+  margin-top: 10px;
+  background: var(--ink-primary);
+  color: #FAF8F3;
+}
+
+.btn-submit-full:hover {
+  background: var(--accent-crimson);
+  color: #FFF;
+}
+
+.feedback-notification {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-top: 12px;
+  min-height: 20px;
+}
+
+.feedback-notification.is-error {
+  color: var(--accent-crimson);
+}
+
+.feedback-notification.is-success {
+  color: #059669;
+}
+
+/* ================= PIE DE PÁGINA ================= */
+
+.site-footer {
+  background: var(--ink-primary);
+  color: #FAF8F3;
+  padding: 48px 0;
+  border-top: var(--border-hard);
+}
+
+.footer-content-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.footer-legal-block {
+  max-width: 520px;
+}
+
+.footer-title {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: #D1C9BC;
+  line-height: 1.5;
+}
+
+.footer-law-block {
+  max-width: 460px;
+}
+
+.footer-subtext {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #BDB5A7;
+  margin-top: 10px;
+  line-height: 1.45;
+  border-left: 3px solid var(--accent-crimson);
+  padding-left: 12px;
+}
+
+/* ================= ADAPTABILIDAD RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-workbench {
+    grid-template-columns: 1fr;
+  }
+  
+  .stage-viewport-area {
+    min-height: 420px;
+  }
+  
+  .desk-overlapping-stage {
+    max-width: 440px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-headline {
+    font-size: 2.1rem;
+  }
+  
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .btn-admin-trigger {
+    width: 100%;
+  }
+  
+  .hero-nav-actions {
+    flex-direction: column;
+  }
+  
+  .btn-hero-primary, .btn-hero-secondary {
+    width: 100%;
+  }
+  
+  .workbench-nav-buttons {
+    flex-direction: column;
+  }
+  
+  .desk-overlapping-stage {
+    left: 0;
+    right: 0;
+    max-width: 100%;
+  }
+  
+  .stacked-photo-card {
+    left: 5px;
+    right: 5px;
+    padding: 10px 10px 16px 10px;
+  }
+  
+  .photo-frame-inner {
+    height: 240px;
+  }
+  
+  .admin-slide-drawer {
+    max-width: 100%;
+  }
+
+  .brutalist-modal {
+    width: 95%;
+    max-height: 94vh;
+  }
+}
+
+/* ================= SESIÓN ACTIVA Y ACCIONES DE ADMINISTRACIÓN ================= */
+
+.session-active-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #E8F5E9;
+  border: var(--border-hard);
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #1B5E20;
+  font-weight: 700;
+}
+
+.btn-logout-small {
+  background: transparent;
+  border: 1px solid #1B5E20;
+  color: #1B5E20;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.btn-logout-small:hover {
+  background: #1B5E20;
+  color: #FFF;
+}
+
+/* Acciones en tarjetas del expediente judicial (Editar / Eliminar) */
+.case-admin-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 2px dashed rgba(20, 20, 20, 0.2);
+}
+
+.btn-case-action {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 8px 12px;
+  cursor: pointer;
+  border: var(--border-hard);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  text-transform: uppercase;
+}
+
+.btn-case-edit {
+  background: #FAF8F3;
+  color: var(--ink-primary);
+  box-shadow: 3px 3px 0px var(--ink-primary);
+}
+
+.btn-case-edit:hover {
+  background: #FFF;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px var(--ink-primary);
+}
+
+.btn-case-delete {
+  background: #FFF5F5;
+  color: var(--accent-crimson);
+  border-color: var(--accent-crimson);
+  box-shadow: 3px 3px 0px var(--accent-crimson);
+}
+
+.btn-case-delete:hover {
+  background: var(--accent-crimson);
+  color: #FFF;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px var(--ink-primary);
+}
+
+/* Acciones de eliminación en entrevistas y fotos */
+.btn-delete-interview,
+.btn-delete-photo {
+  background: #FFF5F5;
+  color: var(--accent-crimson);
+  border: 1px solid var(--accent-crimson);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  align-self: flex-start;
+  transition: all 0.15s ease;
+}
+
+.btn-delete-interview:hover,
+.btn-delete-photo:hover {
+  background: var(--accent-crimson);
+  color: #FFF;
+}
+
+/* ================= MODAL BRUTALISTA DE EDICIÓN ================= */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.brutalist-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%) scale(0.96);
+  width: 90%;
+  max-width: 620px;
+  max-height: 90vh;
+  background: var(--surface-dossier);
+  border: var(--border-hard);
+  box-shadow: 10px 10px 0px var(--ink-primary);
+  z-index: 2100;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.brutalist-modal.is-open {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: var(--ink-primary);
+  color: #FAF8F3;
+  border-bottom: var(--border-hard);
+}
+
+.modal-kicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-crimson);
+}
+
+.modal-title {
+  color: #FAF8F3;
+  font-size: 1.25rem;
+}
+
+.btn-modal-close {
+  background: transparent;
+  color: #FAF8F3;
+  border: 2px solid #FAF8F3;
+  font-size: 0.95rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-modal-close:hover {
+  background: var(--accent-crimson);
+  border-color: var(--accent-crimson);
+}
+
+.modal-body-scroll {
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(20, 20, 20, 0.2);
+}
+
+.btn-modal-cancel {
+  background: #E5DFD3;
+}
+
+/* ================= SECCIÓN PETICIÓN DE FIRMAS (CHANGE.ORG) ================= */
+
+.btn-hero-petition {
+  background: #FAF8F3;
+  color: var(--accent-crimson);
+  border-color: var(--accent-crimson);
+  box-shadow: 4px 4px 0px var(--accent-crimson);
+}
+
+.btn-hero-petition:hover {
+  background: var(--accent-crimson);
+  color: #FAF8F3;
+}
+
+.section-petition-highlight {
+  background-color: var(--bg-paper);
+  border-bottom: var(--border-hard);
+  padding: 70px 0;
+}
+
+.petition-dossier-card {
+  background: var(--surface-card);
+  border: var(--border-hard);
+  border-top: 6px solid var(--accent-crimson);
+  box-shadow: 8px 8px 0px var(--accent-crimson);
+  padding: 38px 40px;
+}
+
+.petition-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed rgba(20, 20, 20, 0.25);
+}
+
+.petition-stamp-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.petition-stamp {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #FAF8F3;
+  background: var(--accent-crimson);
+  padding: 4px 10px;
+  border: var(--border-hard);
+  transform: rotate(-1.5deg);
+  display: inline-block;
+}
+
+.petition-platform-badge {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FAF8F3;
+  background: var(--ink-primary);
+  padding: 4px 10px;
+  border: 1px solid var(--ink-primary);
+}
+
+.petition-law-tag {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-crimson);
+}
+
+.petition-content-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.petition-title {
+  font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+  line-height: 1.18;
+  margin-bottom: 16px;
+}
+
+.petition-lead {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+.petition-meta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta-pill {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: #E8E2D5;
+  color: var(--ink-primary);
+  padding: 4px 10px;
+  border: 1px solid var(--ink-primary);
+}
+
+.petition-action-box {
+  background: #FFFDF9;
+  border: var(--border-hard);
+  box-shadow: var(--shadow-brutalist);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.action-box-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--accent-crimson);
+  letter-spacing: 0.08em;
+}
+
+.action-box-desc {
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
+  margin-bottom: 4px;
+}
+
+.btn-sign-petition {
+  background: var(--accent-crimson);
+  color: #FAF8F3;
+  font-size: 1.02rem;
+  font-weight: 800;
+  padding: 14px 18px;
+  border: var(--border-hard);
+  box-shadow: 4px 4px 0px var(--ink-primary);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.btn-sign-petition:hover {
+  background: var(--accent-crimson-hover);
+  color: #FFFFFF;
+  box-shadow: 6px 6px 0px var(--ink-primary);
+}
+
+.btn-share-petition {
+  background: var(--surface-card);
+  color: var(--ink-primary);
+  font-size: 0.82rem;
+  padding: 10px 14px;
+}
+
+.share-feedback-msg {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #059669;
+  min-height: 20px;
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .petition-content-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .petition-dossier-card {
+    padding: 24px;
+  }
+}
+

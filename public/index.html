@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contra el Maltrato Animal | Punto Norte, Tartagal (Salta)</title>
+  <meta name="description" content="Portal ciudadano y seguimiento judicial por la presunta orden de asesinar gatos en Punto Norte, Tartagal, Salta. Exigencia de justicia bajo Ley Nacional 14.346." />
+  
+  <!-- Tipografías Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Ticker cinético continuo superior pegajoso -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Contra el Maltrato Animal • Tartagal, Salta • Ley Nacional 14.346</span>
+      <span class="ticker-divider">///</span>
+      <span>Exigimos Asignación Fiscal y Pericias Inmediatas</span>
+      <span class="ticker-divider">///</span>
+      <span>Contra el Maltrato Animal • Tartagal, Salta • Ley Nacional 14.346</span>
+      <span class="ticker-divider">///</span>
+      <span>Punto Norte: Exigimos Asignación Fiscal y Pericias Toxicológicas Inmediatas</span>
+      <span class="ticker-divider">///</span>
+      <span>Contra el Maltrato Animal • Tartagal, Salta • Ley Nacional 14.346</span>
+      <span class="ticker-divider">///</span>
+      <span>Exigimos Asignación Fiscal y Pericias Inmediatas</span>
+      <span class="ticker-divider">///</span>
+    </div>
+  </div>
+
+  <!-- Encabezado y Hero Información Judicial -->
+  <header class="site-header">
+    <div class="container top-bar">
+      <div class="location-tag">
+        <span class="pulse-beacon" aria-hidden="true"></span>
+        <span class="mono-badge">Contra el Maltrato Animal — TARTAGAL</span>
+      </div>
+      <button id="toggleAdminBtn" class="btn-brutalist btn-admin-trigger" type="button" aria-haspopup="dialog" aria-expanded="false">
+        <span class="status-indicator-dot" id="adminDot" aria-hidden="true"></span>
+        Panel de Carga / Causa
+      </button>
+    </div>
+
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="kicker-tag">REGISTRO CIUDADANO</div>
+        <h1 class="hero-headline">
+          Justicia ante todo maltrato animal. <em>Exigimos investigación en Punto Norte.</em>
+        </h1>
+        <p class="hero-lead">
+          Plataforma comunitaria de memoria documental y judicial frente a los presuntos envenenamientos y asesinatos de gatos en Punto Norte, Tartagal (Salta). Reclamamos la ineludible intervención del Organismo de Fiscalización y Control de la Municipalidad de Tartagal, del Ministerio Público Fiscal de la Provincia y el fin del traspaso arbitrario de la causa.
+        </p>
+
+        <nav class="hero-nav-actions" aria-label="Secciones rápidas">
+          <a href="#peticion" class="btn-brutalist btn-hero-petition">Petición Change.org ✍</a>
+          <a href="#expediente" class="btn-brutalist btn-hero-primary">Seguimiento Judicial ↓</a>
+          <a href="#galeria" class="btn-brutalist btn-hero-secondary">Archivo de Evidencia ↓</a>
+          <a href="#entrevistas" class="btn-brutalist btn-hero-secondary">Prensa y Videos ↓</a>
+        </nav>
+      </div>
+
+      <!-- Ficha de Expediente en Curso / Manifiesto Legal -->
+      <aside class="hero-dossier-card" aria-labelledby="dossierTitle">
+        <div class="dossier-header">
+          <span class="dossier-stamp">CAUSA EN CURSO</span>
+          <span class="dossier-badge-state">REVISIÓN DE COMPETENCIA</span>
+        </div>
+
+        <h2 id="dossierTitle" class="dossier-title">Incidente de Inhibición y Falta de Fiscal</h2>
+
+        <div class="dossier-statement-box">
+          <div class="statement-author">
+            <strong>ESTADO ACTUAL DE LA CAUSA POR LA DRA. SOL RIOJA</strong>
+            <span class="statement-role">Abogada querellante </span>
+          </div>
+          <blockquote class="statement-body">
+            "El expediente se inició en la <strong>Fiscalía Penal Nº 2</strong> con la inhibición del Dr. Medina; pasó luego a la <strong>Fiscalía Penal de Primera Nominación</strong>, posteriormente fue remitido a <strong>Salvador Mazza</strong> y recaló finalmente en <strong>Embarcación</strong>, donde la fiscal Dra. Souto requirió formalmente la intervención de la <strong>Procuración General de la Provincia</strong>. Esta dilación viola flagrantemente la <strong>Resolución Nº 1479/2023</strong> de la Procuración: la imparcialidad judicial resulta conceptualmente incompatible con el rol requirente del Ministerio Público Fiscal, el criterio de inhibición es estrictamente restrictivo y se impone la exigencia de prueba funcional concreta antes de apartarse de una investigación penal."
+          </blockquote>
+        </div>
+
+        <dl class="dossier-metadata-list">
+          <div class="meta-row">
+            <dt>TIPIFICACIÓN LEGAL:</dt>
+            <dd><strong>Ley Nacional 14.346, Art. 3</strong> (Crueldad Animal)</dd>
+          </div>
+          <div class="meta-row">
+            <dt>JURISDICCIÓN:</dt>
+            <dd>Embarcación - Distrito Judicial Tartagal</dd>
+          </div>
+          <div class="meta-row">
+            <dt>ACTUACIONES REGISTRADAS:</dt>
+            <dd id="statUpdates" class="meta-highlight">Cargando...</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECCIÓN 01: ARCHIVO FOTOGRÁFICO SOLAPADO CON PROTECCIÓN SENSIBLE -->
+    <section id="galeria" class="content-section section-alternate">
+      <div class="container">
+        <div class="section-heading-block">
+          <span class="section-mono-number">01 / ARCHIVO DOCUMENTAL Y FOTOGRÁFICO</span>
+          <h2 class="section-title">Registro de la causa y movilización vecinal</h2>
+          <p class="section-subtitle">
+            Documentación fotográfica de las marchas pacíficas, reclamos en Tartagal. Las fotografías incorporadas como material sensible se protegen mediante un escudo de desenfoque precautorio para preservar la sensibilidad de la comunidad.
+          </p>
+        </div>
+
+        <div class="gallery-workbench">
+          <div class="workbench-controls-panel">
+            <div class="dossier-control-header">
+              <span class="control-label">Registro</span>
+              <span id="photoCounter" class="caption-counter-badge">REGISTRO -- DE --</span>
+            </div>
+
+            <div class="active-caption-container">
+              <p id="activePhotoCaption" class="active-caption-text">Cargando fotografías del archivo...</p>
+            </div>
+
+            <div class="workbench-nav-buttons">
+              <button id="prevPhotoBtn" class="btn-brutalist btn-nav" type="button" aria-label="Fotografía anterior">
+                ← Anterior
+              </button>
+              <button id="pausePlayBtn" class="btn-brutalist btn-nav" type="button">
+                Pausar secuencia
+              </button>
+              <button id="nextPhotoBtn" class="btn-brutalist btn-nav" type="button" aria-label="Siguiente fotografía">
+                Siguiente →
+              </button>
+            </div>
+
+            <div class="workbench-instructions">
+              <p>
+                <strong>Interacción:</strong> Las fotografías se apilan sobre la mesa. Pasa el cursor por encima para desplegarlas en abanico. Haz clic en "Mostrar fotografía" para inspeccionar evidencia judicial sensible.
+              </p>
+            </div>
+          </div>
+
+          <div class="stage-viewport-area">
+            <div id="overlappingStage" class="desk-overlapping-stage" aria-live="polite">
+              <!-- Las tarjetas solapadas se renderizan dinámicamente vía app.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN PETICIÓN DE FIRMAS (CHANGE.ORG) -->
+    <section id="peticion" class="content-section section-petition-highlight">
+      <div class="container">
+        <div class="petition-dossier-card">
+          <div class="petition-header-row">
+            <div class="petition-stamp-wrap">
+              <span class="petition-stamp">ACCIÓN CIUDADANA URGENTE</span>
+              <span class="petition-platform-badge">CHANGE.ORG • RECOLECCIÓN DE FIRMAS</span>
+            </div>
+            <span class="petition-law-tag">LEY NACIONAL 14.346</span>
+          </div>
+
+          <div class="petition-content-grid">
+            <div class="petition-main-info">
+              <h2 id="petitionHeading" class="petition-title">
+                Exigimos que se investigue la orden de matar y envenenar gatos en Punto Norte
+              </h2>
+              <p id="petitionDescription" class="petition-lead">
+                Los vecinos de Tartagal exigimos que la justicia actúe con celeridad y sin dilaciones. Cada firma suma presión ciudadana ante el Ministerio Público Fiscal de Salta y la Procuración General para que se asigne fiscal, se ordenen peritajes toxicológicos urgentes y se condene a los culpables materiales e intelectuales.
+              </p>
+
+              <div class="petition-meta-pills">
+                <span class="meta-pill">✓ Campaña Oficial Verificada</span>
+                <span class="meta-pill">✓ Distrito Judicial Tartagal</span>
+                <span class="meta-pill">✓ Compromiso Comunitario Activo</span>
+              </div>
+            </div>
+
+            <div class="petition-actions-column">
+              <div class="petition-action-box">
+                <span class="action-box-kicker">SUMA TU FIRMA DIGITAL</span>
+                <p class="action-box-desc">
+                  Tu adhesión es fundamental para visibilizar el reclamo y frenar la impunidad del maltrato animal.
+                </p>
+
+                <a 
+                  id="petitionLinkBtn" 
+                  href="https://www.change.org/se-investigue-orden-de-matar-gatos" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn-brutalist btn-sign-petition"
+                >
+                  Firmar la Petición en Change.org ↗
+                </a>
+
+                <button 
+                  id="sharePetitionBtn" 
+                  type="button" 
+                  class="btn-brutalist btn-share-petition"
+                >
+                  <span>Copiar enlace de la petición</span> 📋
+                </button>
+                <p id="shareFeedback" class="share-feedback-msg" aria-live="polite"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 02: EXPEDIENTE JUDICIAL Y PRÓXIMOS AVANCES -->
+    <section id="expediente" class="content-section">
+      <div class="container">
+        <div class="section-heading-split">
+          <div>
+            <span class="section-mono-number">02 / CRONOGRAMA PROCESAL Y SEGUIMIENTO</span>
+            <h2 class="section-title">Expediente Judicial y Próximos Avances</h2>
+            <p class="section-subtitle">
+              Historial cronológico de denuncias, inhibiciones de fiscales, solicitudes ante la Procuración General y próximas audiencias o peritajes.
+            </p>
+          </div>
+
+          <div class="filter-controls-group" role="group" aria-label="Filtro de actuaciones procesales">
+            <button class="pill-filter active" data-filter="all" type="button">Todos</button>
+            <button class="pill-filter" data-filter="past" type="button">Actuaciones Realizadas</button>
+            <button class="pill-filter" data-filter="upcoming" type="button">● Próximos Avances</button>
+          </div>
+        </div>
+
+        <div id="judicialTimeline" class="judicial-cards-grid" aria-live="polite">
+          <!-- Tarjetas del expediente renderizadas dinámicamente vía app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 03: PRENSA, ENTREVISTAS Y VIDEOS -->
+    <section id="entrevistas" class="content-section section-alternate">
+      <div class="container">
+        <div class="section-heading-block">
+          <span class="section-mono-number">03 / ARCHIVO AUDIOVISUAL Y COBERTURA</span>
+          <h2 class="section-title">Prensa, testimonios y entrevistas públicas</h2>
+          <p class="section-subtitle">
+            Cobertura periodística en medios locales, provinciales y declaraciones de vecinos autoconvocados. Soporta emisiones en YouTube, Instagram (Posts y Reels) y Facebook.
+          </p>
+        </div>
+
+        <div id="interviewsGrid" class="interviews-media-grid" aria-live="polite">
+          <!-- Videos y entrevistas renderizados dinámicamente vía app.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PANEL DESLIZABLE DE ADMINISTRACIÓN / CARGA -->
+  <div id="drawerBackdrop" class="drawer-backdrop" aria-hidden="true"></div>
+
+  <aside id="adminDrawer" class="admin-slide-drawer" role="dialog" aria-modal="true" aria-labelledby="drawerHeading" aria-hidden="true">
+    <div class="drawer-header-bar">
+      <div>
+        <span class="drawer-kicker">CONTROL CIUDADANO</span>
+        <h3 id="drawerHeading" class="drawer-title">Panel de Carga / Causa</h3>
+      </div>
+      <button id="closeDrawerBtn" class="btn-drawer-close" type="button" aria-label="Cerrar panel lateral">
+        ✕
+      </button>
+    </div>
+
+    <div class="drawer-body-scroll">
+      <!-- Barra de estado cuando la sesión está activa -->
+      <div id="sessionBar" class="session-active-bar" style="display: none;">
+        <span class="session-status-text">✓ Sesión de coordinación activa</span>
+        <button id="logoutBtn" type="button" class="btn-logout-small">Cerrar Sesión</button>
+      </div>
+
+      <!-- Formulario de Desbloqueo por Clave Secreta -->
+      <form id="authForm" class="auth-box-card">
+        <label for="adminKeyInput" class="form-label">
+          Clave de Coordinación de la Causa
+        </label>
+        <div class="auth-input-group">
+          <input 
+            type="password" 
+            id="adminKeyInput" 
+            name="adminKey" 
+            class="input-brutalist" 
+            placeholder="Introduce la clave de acceso..." 
+            autocomplete="current-password" 
+            required 
+          />
+          <button type="submit" class="btn-brutalist btn-auth-submit">
+            Verificar
+          </button>
+        </div>
+        <p id="authFeedback" class="feedback-notification" aria-live="polite"></p>
+      </form>
+
+      <!-- Contenedor con formularios de carga (bloqueado por defecto) -->
+      <div id="adminFormsContainer" class="admin-tabbed-forms is-locked">
+        <div class="admin-tabs-nav" role="tablist">
+          <button type="button" class="tab-button active" data-tab="tab-judicial" role="tab" aria-selected="true">
+            + Causa
+          </button>
+          <button type="button" class="tab-button" data-tab="tab-photo" role="tab" aria-selected="false">
+            + Foto
+          </button>
+          <button type="button" class="tab-button" data-tab="tab-video" role="tab" aria-selected="false">
+            + Video
+          </button>
+          <button type="button" class="tab-button" data-tab="tab-petition" role="tab" aria-selected="false">
+            + Petición
+          </button>
+        </div>
+
+        <!-- Pestaña 1: Nueva Actuación Judicial -->
+        <form id="formJudicial" class="tab-pane-form active" data-tab-panel="tab-judicial">
+          <div class="form-group">
+            <label class="form-label" for="caseNumberInput">Número de Expediente / Causa (Hasta 250 caracteres)</label>
+            <input type="text" id="caseNumberInput" name="case_number" class="input-brutalist" placeholder="Ej: EXPTE. N° 14.821/24 - FISCALÍA PENAL Nº 2 TARTAGAL" maxlength="250" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="stageInput">Fiscalía / Etapa Procesal</label>
+            <input type="text" id="stageInput" name="stage" class="input-brutalist" placeholder="Ej: Fiscalía Penal Nº 2 / Procuración General" maxlength="250" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="eventDateInput">Fecha de la Actuación</label>
+            <input type="date" id="eventDateInput" name="event_date" class="input-brutalist" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="titleInput">Título del Avance Procesal</label>
+            <input type="text" id="titleInput" name="title" class="input-brutalist" placeholder="Ej: Dra. Souto solicita intervención a Procuración General" maxlength="350" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="descriptionInput">Descripción Detallada de los Hechos</label>
+            <textarea id="descriptionInput" name="description" class="input-brutalist textarea-brutalist" rows="4" placeholder="Detalle de la resolución, escritos presentados o fundamentos legales..." maxlength="10000" required></textarea>
+          </div>
+
+          <div class="form-group checkbox-row-card">
+            <label class="checkbox-label" for="isUpcomingInput">
+              <input type="checkbox" id="isUpcomingInput" name="is_upcoming" class="checkbox-brutalist" />
+              <span>Marcar como <strong>Próximo Avance / Audiencia Pendiente</strong></span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-brutalist btn-submit-full">
+            Publicar en Expediente Judicial
+          </button>
+        </form>
+
+        <!-- Pestaña 2: Nueva Fotografía de la Causa -->
+        <form id="formPhoto" class="tab-pane-form" data-tab-panel="tab-photo">
+          <div class="form-group">
+            <label class="form-label" for="photoFileInput">Archivo de Imagen (JPG, PNG, WEBP — Máx 6MB)</label>
+            <input type="file" id="photoFileInput" name="photo" class="input-brutalist file-input-brutalist" accept="image/jpeg,image/png,image/webp" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="captionInput">Epígrafe / Descripción de la Fotografía</label>
+            <input type="text" id="captionInput" name="caption" class="input-brutalist" placeholder="Ej: Vecinos en marcha pacífica frente al tribunal" maxlength="250" required />
+          </div>
+
+          <div class="form-group checkbox-row-card sensitive-box-highlight">
+            <label class="checkbox-label" for="isSensitiveInput">
+              <input type="checkbox" id="isSensitiveInput" name="is_sensitive" class="checkbox-brutalist" />
+              <span><strong>Evidencia Gráfica Sensible:</strong> Aplicar escudo de difuminado y requerir confirmación del lector antes de mostrar.</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-brutalist btn-submit-full">
+            Subir Fotografía a la Pila Documental
+          </button>
+        </form>
+
+        <!-- Pestaña 3: Nuevo Registro de Prensa / Video -->
+        <form id="formInterview" class="tab-pane-form" data-tab-panel="tab-video">
+          <div class="form-group">
+            <label class="form-label" for="mediaOutletInput">Medio de Comunicación / Periodista</label>
+            <input type="text" id="mediaOutletInput" name="media_outlet" class="input-brutalist" placeholder="Ej: Videotar / Multivisión / FM Alba" maxlength="120" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="videoTitleInput">Título de la Emisión o Nota</label>
+            <input type="text" id="videoTitleInput" name="title" class="input-brutalist" placeholder="Ej: Dra. Sol Rioja expone falta de fiscal en Tartagal" maxlength="250" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="videoUrlInput">Enlace del Video (YouTube, Instagram o Facebook)</label>
+            <input type="url" id="videoUrlInput" name="video_url" class="input-brutalist" placeholder="https://www.youtube.com/watch?v=... o Instagram Reel" required />
+            <span class="field-hint">Soporta videos regulares y Shorts de YouTube, publicaciones y Reels de Instagram, y videos de Facebook.</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="publishedDateInput">Fecha de Publicación</label>
+            <input type="date" id="publishedDateInput" name="published_date" class="input-brutalist" required />
+          </div>
+
+          <button type="submit" class="btn-brutalist btn-submit-full">
+            Registrar Emisión Audiovisual
+          </button>
+        </form>
+
+        <!-- Pestaña 4: Configuración de la Petición Change.org -->
+        <form id="formPetition" class="tab-pane-form" data-tab-panel="tab-petition">
+          <div class="form-group">
+            <label class="form-label" for="petitionTitleInput">Título de la Campaña en Change.org</label>
+            <input type="text" id="petitionTitleInput" name="title" class="input-brutalist" required maxlength="300" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="petitionUrlInput">Enlace Oficial de Change.org</label>
+            <input type="url" id="petitionUrlInput" name="petition_url" class="input-brutalist" placeholder="https://www.change.org/se-investigue-orden-de-matar-gatos" required />
+            <span class="field-hint">Solo se permiten enlaces seguros del dominio oficial de https://www.change.org/</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="petitionDescInput">Texto de Convocatoria y Exigencia Ciudadana</label>
+            <textarea id="petitionDescInput" name="description" class="input-brutalist textarea-brutalist" rows="4" placeholder="Describe los motivos y el pedido formal al Ministerio Público Fiscal..." required maxlength="3000"></textarea>
+          </div>
+
+          <button type="submit" class="btn-brutalist btn-submit-full">
+            Actualizar Petición de Firmas
+          </button>
+        </form>
+
+        <p id="uploadFeedback" class="feedback-notification" aria-live="polite"></p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MODAL BRUTALISTA PARA EDICIÓN DE ACTUACIÓN JUDICIAL -->
+  <div id="editModalBackdrop" class="modal-backdrop" aria-hidden="true"></div>
+  <div id="editModal" class="brutalist-modal" role="dialog" aria-modal="true" aria-labelledby="editModalHeading" aria-hidden="true">
+    <div class="modal-header-bar">
+      <div>
+        <span class="modal-kicker">ACTUALIZACIÓN DE EXPEDIENTE</span>
+        <h3 id="editModalHeading" class="modal-title">Editar Actuación Judicial</h3>
+      </div>
+      <button id="closeEditModalBtn" class="btn-modal-close" type="button" aria-label="Cerrar ventana de edición">✕</button>
+    </div>
+    
+    <form id="formEditJudicial" class="modal-body-scroll">
+      <input type="hidden" id="editUpdateId" name="id" />
+
+      <div class="form-group">
+        <label class="form-label" for="editCaseNumber">Número de Expediente / Causa (Hasta 250 caracteres)</label>
+        <input type="text" id="editCaseNumber" name="case_number" class="input-brutalist" maxlength="250" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="editStage">Fiscalía / Etapa Procesal</label>
+        <input type="text" id="editStage" name="stage" class="input-brutalist" maxlength="250" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="editEventDate">Fecha de la Actuación</label>
+        <input type="date" id="editEventDate" name="event_date" class="input-brutalist" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="editTitle">Título del Avance Procesal</label>
+        <input type="text" id="editTitle" name="title" class="input-brutalist" maxlength="350" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="editDescription">Descripción Detallada de los Hechos</label>
+        <textarea id="editDescription" name="description" class="input-brutalist textarea-brutalist" rows="5" maxlength="10000" required></textarea>
+      </div>
+
+      <div class="form-group checkbox-row-card">
+        <label class="checkbox-label" for="editIsUpcoming">
+          <input type="checkbox" id="editIsUpcoming" name="is_upcoming" class="checkbox-brutalist" />
+          <span>Marcar como <strong>Próximo Avance / Audiencia Pendiente</strong></span>
+        </label>
+      </div>
+
+      <p id="editFeedback" class="feedback-notification" aria-live="polite"></p>
+
+      <div class="modal-actions-row">
+        <button type="button" id="cancelEditBtn" class="btn-brutalist btn-modal-cancel">Cancelar</button>
+        <button type="submit" class="btn-brutalist btn-hero-primary">Guardar Cambios</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Pie de página institucional y legal -->
+  <footer class="site-footer">
+    <div class="container footer-content-flex">
+      <div class="footer-legal-block">
+        <p class="footer-title"><strong>Contra el Maltrato Animal — Tartagal</strong></p>
+        <p class="footer-text">
+          Campaña ciudadana y repositorio documental impulsado por vecinos autoconvocados de Tartagal, Provincia de Salta, República Argentina.
+        </p>
+      </div>
+
+      <div class="footer-law-block">
+        <span class="mono-badge">LEY NACIONAL 14.346</span>
+        <p class="footer-subtext">
+          "Art 1. Será reprimido con prisión de quince días a un año, el que infligiere malos tratos o hiciere víctima de actos de crueldad a los animales." // "Art. 3 inc. 7: 7° Lastimar y arrollar animales intencionalmente, causarles torturas o sufrimientos innecesarios o matarlos por sólo espíritu de perversidad."
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
